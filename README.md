@@ -1,4 +1,4 @@
-# About:
+# About Weed Bot:
 
 Weed Bot is a fun translation bot for telegram. Found at https://t.me/wedibot
 
