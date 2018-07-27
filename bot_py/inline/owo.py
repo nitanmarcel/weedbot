@@ -2,14 +2,14 @@ from bot_py import update, dispatcher
 import re, random
 
 
-
+# thanks to @deletescape and @skittles9823
 def owo_inline(bot, update):
     query = update.inline_query.query
 
     message = update.effective_message
     faces = ['(・`ω´・)',';;w;;','owo','UwU','>w<','^w^','\(^o\) (/o^)/','( ^ _ ^)∠☆','(ô_ô)','~:o',';____;', '(*^*)', '(>_', '(♥_♥)', '*(^O^)*', '((+_+))']
-    reply_text = re.sub(r'[rl]', "w", message.reply_to_message.text)
-    reply_text = re.sub(r'[ｒｌ]', "ｗ", message.reply_to_message.text)
+    reply_text = re.sub(r'[rl]', "w", query)
+    reply_text = re.sub(r'[ｒｌ]', "ｗ", query)
     reply_text = re.sub(r'[RL]', 'W', reply_text)
     reply_text = re.sub(r'[ＲＬ]', 'Ｗ', reply_text)
     reply_text = re.sub(r'n([aeiouａｅｉｏｕ])', r'ny\1', reply_text)

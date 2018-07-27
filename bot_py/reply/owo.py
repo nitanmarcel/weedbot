@@ -24,4 +24,4 @@ def owo_reply(bot, update):
 
 
 
-dispatcher.add_handler(CommandHandler("owo" owo_reply))
+dispatcher.add_handler(CommandHandler("owo", owo_reply))
