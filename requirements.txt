@@ -1,0 +1,5 @@
+python-telegram-bot>=10.1.0
+bs4
+lxml
+requests
+uuid
