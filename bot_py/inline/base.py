@@ -7,7 +7,7 @@ from bot_py import update, dispatcher
 from bot_py.inline.gangsta import gangsta_inline # Import the gangsta inline command
 from bot_py.inline.yoda import yoda_inline # Import the yoda inline command
 from bot_py.inline.owo import owo_inline
-from bot_py.inline.miscs import reverse_inline, tiny_inline
+from bot_py.inline.misc import reverse_inline, tiny_inline
 from uuid import uuid4
 
 def inline_query(bot, update):
