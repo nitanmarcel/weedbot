@@ -19,8 +19,9 @@ def help(bot, update):
     HELP_STRING = """
 
     My commands works inline too:
-    /420 - Use this to translate sentences in gangsta slang
-    /yodish - Use this to translate sentences in yoda slang
+    /420 -Reply to a message to translate it in gangsta slang
+    /yodish - Reply to a message to translate it in yoda slang
+    /owo - Reply to a message to translate it in owo slang
     """
     update.message.reply_text(HELP_STRING)
 
