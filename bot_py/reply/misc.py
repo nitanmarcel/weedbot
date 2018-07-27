@@ -1,5 +1,6 @@
 from telegram.ext import Updater, CommandHandler
 from bot_py import dispatcher, update
+from tinytext import tinytext
 
 def reverse_reply(bot, update):
     message = update.effective_message

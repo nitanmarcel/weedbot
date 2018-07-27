@@ -22,7 +22,8 @@ def help(bot, update):
     /420 -Reply to a message to translate it in gangsta slang
     /yodish - Reply to a message to translate it in yoda slang
     /owo - Reply to a message to translate it in owo slang
-    /reverse - Reply to a meesage to reverse it 
+    /reverse - Reply to a meesage to reverse it
+    /tiny - Reply to a meesage to make it tiny
     """
     update.message.reply_text(HELP_STRING)
 

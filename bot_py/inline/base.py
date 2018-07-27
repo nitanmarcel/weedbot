@@ -7,7 +7,7 @@ from bot_py import update, dispatcher
 from bot_py.inline.gangsta import gangsta_inline # Import the gangsta inline command
 from bot_py.inline.yoda import yoda_inline # Import the yoda inline command
 from bot_py.inline.owo import owo_inline
-from bot_py.inline.misc import reverse_inline
+from bot_py.inline.miscs import reverse_inline, tiny_inline
 from uuid import uuid4
 
 def inline_query(bot, update):
@@ -16,6 +16,7 @@ def inline_query(bot, update):
     yoda = yoda_inline(bot, update) ## calling the yoda inline command
     owo = owo_inline(bot, update)
     reverse = reverse_inline(bot, update)
+    tiny = tiny_inline(bot, update)
 
 # Repeat "InlineQueryResultArticle( ))"" for every inline command, add a dot after "))" if the pharanteses are before the ending bracket
     results = [
@@ -39,10 +40,16 @@ def inline_query(bot, update):
                 owo)),
         InlineQueryResultArticle(
             id=uuid4(),
-            title="OwO",
+            title="Reverse",
             description=reverse,
             input_message_content=InputTextMessageContent(
-                reverse))]
+                reverse)),
+        InlineQueryResultArticle(
+            id=uuid4(),
+            title="Tiny",
+            description=tiny,
+            input_message_content=InputTextMessageContent(
+                tiny))]
                 
     update.inline_query.answer(results)
 
