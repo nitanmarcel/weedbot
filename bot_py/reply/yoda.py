@@ -1,7 +1,6 @@
 from telegram.ext import Updater, CommandHandler
 from bot_py import dispatcher, update
-
-import requests
+from suds.client import Client
 
 def yoda_reply(bot, update):
     message = update.effective_message
