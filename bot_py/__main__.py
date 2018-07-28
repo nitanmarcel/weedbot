@@ -24,6 +24,7 @@ def help(bot, update):
     /owo - Reply to a message to translate it in owo slang
     /reverse - Reply to a meesage to reverse it
     /tiny - Reply to a meesage to make it tiny
+    /zalgofy - Reply to a message to zalgofy it
     """
     update.message.reply_text(HELP_STRING)
 
