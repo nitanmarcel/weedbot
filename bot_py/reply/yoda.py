@@ -9,11 +9,9 @@ def yoda_reply(bot, update):
     if not rep_message:
                 update.effective_message.reply_text("For this to work reply a message you have.")
     else:
-        yoda_params = {"text": rep_message.text}
-        yoda_url = 'http://yoda-api.appspot.com/api/v1/yodish'
-        yoda_re = requests.get(yoda_url, params=yoda_params)
-        yoda_text = yoda_re.json()
-        yodish = yoda_text.get("yodish", None)
+        yoda_url = 'http://www.yodaspeak.co.uk/webservice/yodatalk.php?wsdl'
+        client  = Client(yoda_url)
+        yodish = client.service.yodaTalk(rep_message.text)
         update.message.reply_text(yodish)
 
 dispatcher.add_handler(CommandHandler("yodish", yoda_reply))
