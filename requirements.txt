@@ -6,3 +6,4 @@ uuid
 tinytext
 suds-jurko==0.6
 zalgo_text
+fancy_text

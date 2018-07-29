@@ -7,8 +7,7 @@ from bot_py import update, dispatcher
 from bot_py.inline.gangsta import gangsta_inline # Import the gangsta inline command
 from bot_py.inline.yoda import yoda_inline # Import the yoda inline command
 from bot_py.inline.owo import owo_inline
-from bot_py.inline.fancy import fancy_inline
-from bot_py.inline.miscs import reverse_inline, tiny_inline, zalgo_inline
+from bot_py.inline.misc import reverse_inline, tiny_inline, zalgo_inline, fancy_bold_inline, fancy_light_inline
 from uuid import uuid4
 
 def inline_query(bot, update):
@@ -19,7 +18,8 @@ def inline_query(bot, update):
     reverse = reverse_inline(bot, update)
     tiny = tiny_inline(bot, update)
     zalgo = zalgo_inline(bot, update)
-    fancy = fancy_inline(bot, update)
+    fancy_light = fancy_light_inline(bot, update)
+    fancy_bold = fancy_bold_inline(bot, update)
 
 # Repeat "InlineQueryResultArticle( ))"" for every inline command, add a dot after "))" if the pharanteses are before the ending bracket
     results = [
@@ -61,10 +61,16 @@ def inline_query(bot, update):
                 zalgo)),
         InlineQueryResultArticle(
             id=uuid4(),
-            title="Fancy",
-            description=fancy,
+            title="Fancy Light",
+            description=fancy_light,
             input_message_content=InputTextMessageContent(
-                fancy))]
+                fancy_light)),
+        InlineQueryResultArticle(
+            id=uuid4(),
+            title="Fancy Bold",
+            description=fancy_bold,
+            input_message_content=InputTextMessageContent(
+                fancy_bold))]
                 
     update.inline_query.answer(results)
 
