@@ -25,6 +25,7 @@ def help(bot, update):
     /reverse - Reply to a meesage to reverse it
     /tiny - Reply to a meesage to make it tiny
     /zalgofy - Reply to a message to zalgofy it
+    /fancy - Reply to a text to make it "beautiful
     """
     update.message.reply_text(HELP_STRING)
 
