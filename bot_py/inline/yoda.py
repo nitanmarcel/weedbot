@@ -1,11 +1,66 @@
+
 from bot_py import update, dispatcher
 from suds.client import Client
 import re
 
+
 def yoda_inline(bot,update):
     query = update.inline_query.query
-
+# Some ASCII characters are lost and they come back wrong.. this bad english hax will fix them
+# Also yoda translator does the same thing with contractions.. I'm just helping him
     replace_dict = {
+    "Aren't" : "Are not",
+    "Can't" : "Cannot",
+    "Couldn't" : "Could not",
+    "Didn't" : "Did not",
+    "Doesn't" : "Does not",
+    "Don't" : "Do not",
+    "Hadn't" : "Had not",
+    "Hasn't" : "Has not",
+    "Haven't" : "Have not",
+    "He'll" : "He will",
+    "He's" : "He is",
+    "I'd" : "I had",
+    "I'll" : "I will",
+    "I'm" : "I am",
+    "I've" : "I have",
+    "Isn't" : "Is not",
+    "Let's" : "Let us",
+    "Mightn't" : "Might not",
+    "Mustn't" : "Must not",
+    "Shan't" : "Shall not",
+    "She'd" : "She would",
+    "She'll" : "She will",
+    "She's" : "She is",
+    "Shouldn't" : "Should not",
+    "That's" : "That is",
+    "That's" : "That is",
+    "There's" : "'there is",
+    "They'd" : "They had",
+    "They'll" : "They will",
+    "They're" : "They are",
+    "They've" : "They have",
+    "We'd" : "We would",
+    "We're" : "We are",
+    "We've" : "We have",
+    "We'll" : "We will",
+    "Weren't" : "Were not",
+    "What'll" : "What will",
+    "What're" : "What are",
+    "What's" : "What is",
+    "What've" : "What have",
+    "Where's" : "Where is",
+    "Who's" : "Who would",
+    "Who'll" : "Who will",
+    "Who're" : "Who are",
+    "Who's" : "Who is",
+    "Who've" : "Who have",
+    "Won't" : "Will not",
+    "Wouldn't" : "Would not",
+    "You'd" :  "You would",
+    "You'll" : "You will",
+    "You're" : "You are",
+    "You've" : "You have",
     "aren't" : "are not",
     "can't" : "cannot",
     "couldn't" : "could not",
@@ -17,19 +72,20 @@ def yoda_inline(bot,update):
     "haven't" : "have not",
     "he'll" : "he will",
     "he's" : "he is",
-    "I'd" : "I had",
-    "I'll" : "I will",
-    "I'm" : "I am",
-    "I've" : "I have",
+    "i'd" : "i had",
+    "i'll" : "i will",
+    "i'm" : "i am",
+    "i've" : "i have",
     "isn't" : "is not",
     "let's" : "let us",
-    "mightn't" : "might not",
-    "mustn't" : "must not",
+    "nightn't" : "night not",
+    "nustn't" : "nust not",
     "shan't" : "shall not",
     "she'd" : "she would",
     "she'll" : "she will",
     "she's" : "she is",
     "shouldn't" : "should not",
+    "that's" : "that is",
     "that's" : "that is",
     "there's" : "'there is",
     "they'd" : "they had",
@@ -39,6 +95,7 @@ def yoda_inline(bot,update):
     "we'd" : "we would",
     "we're" : "we are",
     "we've" : "we have",
+    "we'll" : "we will",
     "weren't" : "were not",
     "what'll" : "what will",
     "what're" : "what are",
@@ -55,10 +112,13 @@ def yoda_inline(bot,update):
     "you'd" :  "you would",
     "you'll" : "you will",
     "you're" : "you are",
-    "you've" : "you have", 
+    "you've" : "you have" 
+    
 }
 
 
+
+    text = "I'm the best. I'll prove that"
     pattern = re.compile(r'\b(' + '|'.join(replace_dict.keys()) + r')\b')
     result = pattern.sub(lambda x: replace_dict[x.group()], query)
     yoda_url = 'http://www.yodaspeak.co.uk/webservice/yodatalk.php?wsdl'

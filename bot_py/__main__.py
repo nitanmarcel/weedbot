@@ -11,7 +11,7 @@ logging.basicConfig(
 level=logging.INFO)
 
 def start(bot, update):
-    update.message.reply_text("Hi! I'm the Weed Bot \nI can translate any text in a gangsta text\n Find about my commands with /help")
+    update.message.reply_text("Hi! I'm the Weed Bot \nI can translate any text in a gangsta text\n Find about my commands with /help \n check @alexsbots for update logs and new bots releases")
 
 
 def help(bot, update):
