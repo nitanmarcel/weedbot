@@ -1,15 +1,19 @@
-from telegram.ext import Updater
 import os
+from telethon import TelegramClient
+import logging
 
-from os.path import dirname, basename, isfile
-import glob
-
-
-TOKEN = os.environ.get('TOKEN', None)
-update = Updater(TOKEN)
-dispatcher = update.dispatcher
-
-URL = os.environ.get('URL', "")
-PORT = int(os.environ.get('PORT', 5000))
+logging.basicConfig(
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    level=logging.INFO)
 
 
+try:
+    API_ID = os.environ["APP_ID"]
+    API_HASH = os.environ["APP_HASH"]
+    TOKEN = os.environ["TOKEN"]
+except KeyError as e:
+    quit(e.args[0] + ' missing from environment variables')
+
+bot = TelegramClient("weedbot", API_ID, API_HASH)
+
+bot.start(bot_token=TOKEN)
