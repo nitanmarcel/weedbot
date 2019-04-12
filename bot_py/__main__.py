@@ -61,17 +61,20 @@ async def handler(event):
 @bot.on(events.InlineQuery)
 async def query_handler(event):
     builder = event.builder
-    query = event.text or "Please type something"
+    query = event.text
     results = []
 
-    for k, v in (await get_results(query, as_dict=True)).items():
-        results.append(
-            builder.article(
-                str(k),
-                description=str(v),
-                text=str(v)))
+    if query:
+        for k, v in (await get_results(query, as_dict=True)).items():
+            results.append(
+                builder.article(
+                    str(k),
+                    description=str(v),
+                    text=str(v)))
 
-    await event.answer(results=results)
+        await event.answer(results=results)
+    else:
+        await event.answer(switch_pm="Text can't be empty", switch_pm_param='_')
 
 
 if __name__ == "__main__":
